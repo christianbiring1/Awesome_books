@@ -1,5 +1,14 @@
 //Create a collection that keeps a list of books
-const library = [];
+const library = [
+  // {
+  //   title: 'example 1',
+  //   author: 'example 1',
+  // },
+  // {
+  //   title: 'example 2',
+  //   author: 'example 2',
+  // },
+];
 
 //Create a function to add a new book to the collection
 const bookStore = document.querySelector('.book-store');
@@ -7,7 +16,6 @@ const booksForm = document.forms[0];
 const bookTitle = booksForm['title'];
 const bookAuthor = booksForm['author'];
 const addButton = document.querySelector('button');
-
 
 function addBook() {
   booksForm.addEventListener('submit', (e) => {
@@ -22,8 +30,8 @@ function addBook() {
     const lineBreak = document.createElement('hr');
 
     removeButton.classList.add('delete');
-    
-    // Display on the page the typed title and author 
+
+    // Display on the page the typed title and author
 
     titleTag.textContent = `${bookTitle.value}`;
     authorTag.textContent = `${bookAuthor.value}`;
@@ -37,13 +45,16 @@ function addBook() {
 
     // Add new book to the collection, with title and author
 
-    function bookAdded(title, Author, id) { 
-      this.title = title,
-      this.Author = Author,
-      this.id = id
+    let id = 0;
+    function bookAdded(title, Author, id) {
+      (this.title = title), (this.Author = Author), (this.id = id);
     }
 
-    const newBook = new bookAdded(`${bookTitle.value}`, `${bookAuthor.value}`);
+    const newBook = new bookAdded(
+      `${bookTitle.value}`,
+      `${bookAuthor.value}`,
+      library.length
+    );
     library.push(newBook);
     console.log(library);
     removeButton.addEventListener('click', (e) => {
@@ -51,9 +62,7 @@ function addBook() {
       bookStore.removeChild(book);
 
       library.filter((item) => {
-        for(let i = 0; i < library.length; i++){
-          item !== library[i]
-        }
+        library.length - 1 !== id;
       });
       console.log(library);
     });
@@ -63,4 +72,3 @@ function addBook() {
 }
 
 addBook();
-
