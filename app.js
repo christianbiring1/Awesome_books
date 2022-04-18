@@ -1,14 +1,5 @@
 //Create a collection that keeps a list of books
-const library = [
-  {
-    title: 'For one more day',
-    author: 'Mitch Albom',
-  },
-  {
-    title: 'What the wiseman fear',
-    author: 'Christian',
-  },
-];
+const library = [];
 
 //Create a function to add a new book to the collection
 const bookStore = document.querySelector('.book-store');
@@ -46,9 +37,10 @@ function addBook() {
 
     // Add new book to the collection, with title and author
 
-    function bookAdded(title, Author) { 
+    function bookAdded(title, Author, id) { 
       this.title = title,
-      this.Author = Author
+      this.Author = Author,
+      this.id = id
     }
 
     const newBook = new bookAdded(`${bookTitle.value}`, `${bookAuthor.value}`);
