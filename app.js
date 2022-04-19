@@ -1,5 +1,5 @@
 //Create a collection that keeps a list of books
-const library = [];
+let library = [];
 
 //Create a function to add a new book to the collection
 const bookStore = document.querySelector('.book-store');
@@ -7,7 +7,6 @@ const booksForm = document.forms[0];
 const bookTitle = booksForm['title'];
 const bookAuthor = booksForm['author'];
 const addButton = document.querySelector('button');
-
 
 function addBook() {
   booksForm.addEventListener('submit', (e) => {
@@ -36,11 +35,8 @@ function addBook() {
 
     // Add new book to the collection, with title and author
 
-    
     function bookAdded(title, Author, id) {
-      (this.title = title), 
-      (this.Author = Author), 
-      (this.id = id);
+      (this.title = title), (this.Author = Author), (this.id = id);
     }
 
     const newBook = new bookAdded(
@@ -50,28 +46,25 @@ function addBook() {
     );
     library.push(newBook);
     // console.log(library);
-    
+
     removeButton.addEventListener('click', (e) => {
       const book = e.target.parentElement;
       bookStore.removeChild(book);
 
-      const filteredTitle = e.target.previousElementSibling.previousElementSibling.textContent;
-      const filteredAuthor = e.target.previousElementSibling.textContent;
-      console.log(library);
-      // console.log(filteredTitle, filteredAuthor);
-      
-      function newLibrary() {
-        return library.filter((book) => 
-          (book.title !== filteredTitle));
-      }
-      let a = newLibrary(filteredAuthor, filteredTitle);
-      console.log(a);
-      console.log(library);
-    }); 
-    
+      const filteredTitle =
+        e.target.previousElementSibling.previousElementSibling.textContent;
+
+      library = library.filter((book) => {
+        if (book.title === filteredTitle) {
+          return false;
+        } else {
+          return true;
+        }
+      });
+    });
+
     // Remove the book inside the collection.
   });
 }
 
 addBook();
-
