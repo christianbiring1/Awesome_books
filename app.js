@@ -45,7 +45,7 @@ function addBook() {
 
     // Add new book to the collection, with title and author
 
-    let id = 0;
+    let id = library.length;
     function bookAdded(title, Author, id) {
       (this.title = title), (this.Author = Author), (this.id = id);
     }
@@ -53,7 +53,7 @@ function addBook() {
     const newBook = new bookAdded(
       `${bookTitle.value}`,
       `${bookAuthor.value}`,
-      library.length
+      id
     );
     library.push(newBook);
     console.log(library);
@@ -61,9 +61,8 @@ function addBook() {
       const book = e.target.parentElement;
       bookStore.removeChild(book);
 
-      library.filter((item) => {
-        library.length - 1 !== id;
-      });
+      const newLibrary = library.splice(id, 1);
+      console.log(newLibrary);
       console.log(library);
     });
 
