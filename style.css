@@ -3,3 +3,8 @@
 *::after {
   box-sizing: border-box;
 }
+
+.main {
+  width: 70%;
+  margin: 0 auto;
+}
