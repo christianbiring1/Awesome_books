@@ -1,70 +1,61 @@
-//Create a collection that keeps a list of books
-let library = [];
+/* eslint-disable consistent-return */
 
-//Create a function to add a new book to the collection
 const bookStore = document.querySelector('.book-store');
-const booksForm = document.forms[0];
-const bookTitle = booksForm['title'];
-const bookAuthor = booksForm['author'];
-const addButton = document.querySelector('button');
+const booksForm = document.getElementById('form');
+const bookTitle = document.getElementById('title');
+const bookAuthor = document.getElementById('author');
 
-function addBook() {
-  booksForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-  });
+let library = JSON.parse(localStorage.getItem('booksList')) || [];
 
-  addButton.addEventListener('click', () => {
-    const bookWrapper = document.createElement('div');
-    const titleTag = document.createElement('p');
-    const authorTag = document.createElement('p');
-    const removeButton = document.createElement('button');
-    const lineBreak = document.createElement('hr');
+const addBook = (title, author) => {
+  library.push({ title, author });
 
-    removeButton.classList.add('delete');
+  localStorage.setItem('booksList', JSON.stringify(library));
+  return { title, author };
+};
 
-    // Display on the page the typed title and author
+const createBook = ({ title, author }) => {
+  const bookWrapper = document.createElement('div');
+  const titleTag = document.createElement('p');
+  const authorTag = document.createElement('p');
+  const removeButton = document.createElement('button');
+  const lineBreak = document.createElement('hr');
 
-    titleTag.textContent = `${bookTitle.value}`;
-    authorTag.textContent = `${bookAuthor.value}`;
-    removeButton.textContent = 'Remove';
+  titleTag.innerText = title;
+  authorTag.innerText = author;
+  removeButton.innerText = 'Remove';
 
-    // Append the created element in the document
+  bookWrapper.append(titleTag, authorTag, removeButton, lineBreak);
+  bookStore.appendChild(bookWrapper);
 
-    bookWrapper.append(titleTag, authorTag, removeButton, lineBreak);
-    bookStore.appendChild(bookWrapper);
+  removeButton.addEventListener('click', (e) => {
+    const book = e.target.parentElement;
+    bookStore.removeChild(book);
 
-    // Add new book to the collection, with title and author
+    const filteredTitle = e.target.previousElementSibling.previousElementSibling.textContent;
 
-    function bookAdded(title, Author, id) {
-      (this.title = title), (this.Author = Author), (this.id = id);
-    }
-
-    const newBook = new bookAdded(
-      `${bookTitle.value}`,
-      `${bookAuthor.value}`,
-      library.length
-    );
-    library.push(newBook);
-    // console.log(library);
-
-    removeButton.addEventListener('click', (e) => {
-      const book = e.target.parentElement;
-      bookStore.removeChild(book);
-
-      const filteredTitle =
-        e.target.previousElementSibling.previousElementSibling.textContent;
-
-      library = library.filter((book) => {
-        if (book.title === filteredTitle) {
-          return false;
-        } else {
-          return true;
-        }
-      });
+    library = library.filter((book) => {
+      if (book.title === filteredTitle) {
+        return false;
+      }
+      return true;
     });
-
-    // Remove the book inside the collection.
+    localStorage.setItem('booksList', JSON.stringify(library));
   });
-}
+};
 
-addBook();
+library.forEach(createBook);
+
+booksForm.onsubmit = (e) => {
+  e.preventDefault();
+
+  if (bookTitle.value === '' || bookAuthor.value === '') {
+    return false;
+  }
+  const newBook = addBook(bookTitle.value, bookAuthor.value);
+
+  createBook(newBook);
+
+  bookTitle.value = '';
+  bookAuthor.value = '';
+};
