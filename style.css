@@ -4,6 +4,40 @@
   box-sizing: border-box;
 }
 
+.header-nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+  border: 2px solid #000;
+  align-items: center;
+  font-weight: bold;
+}
+
+.nav-bar {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-bar li {
+ list-style-type: none;
+}
+
+.list::after,
+.add::after {
+  content: '';
+  background-color: #000;
+  width: 3px;
+  height: 20px;
+  position: absolute;
+  margin: 0 10px;
+}
+
+.header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 20px;
+}
+
 .main {
   width: 70%;
   margin: 0 auto;
