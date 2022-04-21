@@ -84,7 +84,6 @@ function hanldRemove(e) {
 bookStore.addEventListener('click', hanldRemove);
 
 const headerDate = document.querySelector('.header-date');
-let date = new Date();
 headerDate.innerHTML = Date();
 
 const bookSection = document.querySelector('.book-section');
@@ -97,28 +96,27 @@ const contactLink = document.querySelector('.contact');
 
 linkList.addEventListener('click', () => {
   bookSection.style.display = 'block';
-  addBookSection.style.display ='none';
-  contactSection.style.display ='none';
+  addBookSection.style.display = 'none';
+  contactSection.style.display = 'none';
   linkList.style.color = 'blue';
   AddNewLink.style.color = 'black';
   contactLink.style.color = 'black';
-})
+});
 
 AddNewLink.addEventListener('click', () => {
   bookSection.style.display = 'none';
-  addBookSection.style.display ='block';
-  contactSection.style.display ='none';
+  addBookSection.style.display = 'block';
+  contactSection.style.display = 'none';
   AddNewLink.style.color = 'blue';
   linkList.style.color = 'black';
   contactLink.style.color = 'black';
-})
+});
 
 contactLink.addEventListener('click', () => {
   bookSection.style.display = 'none';
-  addBookSection.style.display ='none';
-  contactSection.style.display ='block';
+  addBookSection.style.display = 'none';
+  contactSection.style.display = 'block';
   contactLink.style.color = 'blue';
   AddNewLink.style.color = 'black';
   linkList.style.color = 'black';
-})
-
+});
