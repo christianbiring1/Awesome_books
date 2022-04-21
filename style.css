@@ -4,8 +4,14 @@
   box-sizing: border-box;
 }
 
-.book-section,
+.book-section {
+  display: none;
+}
 .add-section {
+  display: block;
+}
+
+.contact-section {
   display: none;
 }
 .header-nav {
@@ -22,8 +28,13 @@
   gap: 20px;
 }
 
+.header-nav div {
+  cursor: pointer;
+}
+
 .nav-bar li {
  list-style-type: none;
+ cursor: pointer;
 }
 
 .list::after,
@@ -72,11 +83,11 @@
   font-family: 'Patrick Hand', cursive;
 }
 
-hr {
+/* hr {
   margin: 20px auto;
   max-width: 30%;
   border-color: #000;
-}
+} */
 
 #form {
   text-align: center;
@@ -112,12 +123,17 @@ input {
 }
 
 .contact-section div {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, 10%);
-  
+  width: 80%;
   margin: 0 auto;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  border: 2px solid #000;
+  width: 97%;
+  padding: 0 10px;
+  font-family: 'Patrick Hand', cursive;
 }
 
 @media only screen and (min-width: 768px) {

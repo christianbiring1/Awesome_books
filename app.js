@@ -82,3 +82,16 @@ function hanldRemove(e) {
 }
 
 bookStore.addEventListener('click', hanldRemove);
+
+const headerDate = document.querySelector('.header-date');
+let date = new Date();
+headerDate.innerHTML = Date();
+
+const bookSection = document.querySelector('.book-section');
+const addBookSection = document.querySelector('.add-section');
+const contactSection = document.querySelector('.contact-section');
+
+const linkList = document.querySelector('.list');
+const AddNewLink = document.querySelector('.add');
+const contactLink = document.querySelector('.contact');
+
