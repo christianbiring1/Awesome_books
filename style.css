@@ -8,8 +8,7 @@
   width: 70%;
   margin: 0 auto;
   position: relative;
-  font-family: 'Patrick Hand',
-  cursive;
+  font-family: 'Patrick Hand', cursive;
 }
 
 .main h1 {
@@ -24,6 +23,7 @@
 .book-container {
   padding: 10px;
 }
+
 .book-container:nth-child(2n) {
   background-color: #fff;
 }
@@ -31,8 +31,7 @@
 .delete {
   float: right;
   box-shadow: 2px 2px 2px #000;
-  font-family: 'Patrick Hand',
-  cursive;
+  font-family: 'Patrick Hand', cursive;
 }
 
 hr {
@@ -58,20 +57,19 @@ input {
   padding: 5px;
   margin: 5px 0 10px;
   border: 2px solid #000;
-  font-family: 'Patrick Hand',
-  cursive;
+  font-family: 'Patrick Hand', cursive;
 }
+
 .add-btn {
   float: right;
   width: 50px;
   align-self: flex-end;
   box-shadow: 2px 2px 2px #000;
   border: 2px solid #000;
-  font-family: 'Patrick Hand',
-  cursive;
+  font-family: 'Patrick Hand', cursive;
 }
 
-@media only screen and (min-width: 768px){
+@media only screen and (min-width: 768px) {
   .main {
     width: 50%;
   }

@@ -1,8 +1,8 @@
+/* eslint-disable max-classes-per-file */
+/* eslint-disable array-callback-return */
+/* eslint-disable consistent-return */
 const bookStore = document.querySelector('.book-store');
 const form = document.getElementById('form');
-const title = document.getElementById('title').value;
-const author = document.getElementById('author').value;
-const addBookBtn = document.querySelector('.add-btn');
 
 class Book {
   constructor(title, author) {
@@ -42,8 +42,7 @@ class UI {
     if (target.classList.contains('delete')) {
       target.parentNode.remove();
     }
-    const filteredTitle =
-      target.previousElementSibling.previousElementSibling.textContent;
+    const filteredTitle = target.previousElementSibling.previousElementSibling.textContent;
 
     defaultBooks = defaultBooks.filter((book) => {
       if (book.title !== filteredTitle) {
@@ -54,8 +53,6 @@ class UI {
 }
 
 UI.displayBooks();
-
-form.addEventListener('submit', addBook, false);
 
 function addBook(e) {
   e.preventDefault();
@@ -77,9 +74,11 @@ function addBook(e) {
   UI.clearFields();
 }
 
-bookStore.addEventListener('click', hanldRemove);
+form.addEventListener('submit', addBook, false);
 
 function hanldRemove(e) {
   UI.deleteBook(e.target);
   localStorage.setItem('books', JSON.stringify(defaultBooks));
 }
+
+bookStore.addEventListener('click', hanldRemove);
