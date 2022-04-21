@@ -1,61 +1,86 @@
-/* eslint-disable consistent-return */
-
 const bookStore = document.querySelector('.book-store');
-const booksForm = document.getElementById('form');
-const bookTitle = document.getElementById('title');
-const bookAuthor = document.getElementById('author');
+const form = document.getElementById('form');
+const title = document.getElementById('title').value;
+const author = document.getElementById('author').value;
+const addBookBtn = document.querySelector('.add-btn');
 
-let library = JSON.parse(localStorage.getItem('booksList')) || [];
+class Book {
+  constructor(title, author) {
+    this.title = title;
+    this.author = author;
+  }
+}
 
-const addBook = (title, author) => {
-  library.push({ title, author });
+let defaultBooks = JSON.parse(localStorage.getItem('books')) || [];
 
-  localStorage.setItem('booksList', JSON.stringify(library));
-  return { title, author };
-};
+class UI {
+  static displayBooks() {
+    defaultBooks.forEach((book) => UI.addBookToList(book));
+  }
 
-const createBook = ({ title, author }) => {
-  const bookWrapper = document.createElement('div');
-  const titleTag = document.createElement('p');
-  const authorTag = document.createElement('p');
-  const removeButton = document.createElement('button');
-  const lineBreak = document.createElement('hr');
+  static addBookToList(book) {
+    const bookStore = document.querySelector('.book-store');
+    const div = document.createElement('div');
 
-  titleTag.innerText = title;
-  authorTag.innerText = author;
-  removeButton.innerText = 'Remove';
+    div.innerHTML = `
+    <p>${book.title}</P>
+    <p>${book.author}</P>
+    <button class="delete">Remove</button>
+    <hr>`;
 
-  bookWrapper.append(titleTag, authorTag, removeButton, lineBreak);
-  bookStore.appendChild(bookWrapper);
+    bookStore.appendChild(div);
+  }
 
-  removeButton.addEventListener('click', (e) => {
-    const book = e.target.parentElement;
-    bookStore.removeChild(book);
+  static clearFields() {
+    const title = document.getElementById('title');
+    const author = document.getElementById('author');
 
-    const filteredTitle = e.target.previousElementSibling.previousElementSibling.textContent;
+    title.value = '';
+    author.value = '';
+  }
 
-    library = library.filter((book) => {
-      if (book.title === filteredTitle) {
-        return false;
+  static deleteBook(target) {
+    if (target.classList.contains('delete')) {
+      target.parentNode.remove();
+    }
+    const filteredTitle =
+      target.previousElementSibling.previousElementSibling.textContent;
+
+    defaultBooks = defaultBooks.filter((book) => {
+      if (book.title !== filteredTitle) {
+        return true;
       }
-      return true;
     });
-    localStorage.setItem('booksList', JSON.stringify(library));
-  });
-};
+  }
+}
 
-library.forEach(createBook);
+UI.displayBooks();
 
-booksForm.onsubmit = (e) => {
+form.addEventListener('submit', addBook, false);
+
+function addBook(e) {
   e.preventDefault();
 
-  if (bookTitle.value === '' || bookAuthor.value === '') {
-    return false;
+  const title = document.getElementById('title').value;
+  const author = document.getElementById('author').value;
+
+  if (title === '' || author === '') {
+    return;
   }
-  const newBook = addBook(bookTitle.value, bookAuthor.value);
 
-  createBook(newBook);
+  const book = new Book(title, author);
 
-  bookTitle.value = '';
-  bookAuthor.value = '';
-};
+  defaultBooks.push(book);
+  localStorage.setItem('books', JSON.stringify(defaultBooks));
+
+  UI.addBookToList(book);
+
+  UI.clearFields();
+}
+
+bookStore.addEventListener('click', hanldRemove);
+
+function hanldRemove(e) {
+  UI.deleteBook(e.target);
+  localStorage.setItem('books', JSON.stringify(defaultBooks));
+}
