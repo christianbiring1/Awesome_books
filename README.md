@@ -50,7 +50,7 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- Want to acknowledge [Cindy Shin in Behance](https://www.behance.net/gallery/29845175/CC-Global-Summit-2015). who was the designer of the tamplate that serve me for reference
+- All my appreciation to our team Eid Hachem and I.
 - Hat tip to anyone who will take a glance to this project
 
 ## 📝 License
