@@ -4,23 +4,27 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
     <title>Awesome-books</title>
   </head>
   <body>
-    <div class="main">
+    <main class="main">
       <h1>Awesome books</h1>
       <div class="book-store"></div>
+      <hr />
       <form id="form">
-        <p>
-          <input type="text" name="title" id="title" placeholder="Title" />
-        </p>
-        <p>
-          <input type="text" name="author" id="author" placeholder="Author" />
-        </p>
+        <h2>Add a new book</h2>
+        <input type="text" name="title" id="title" placeholder="Title" />
+        <input type="text" name="author" id="author" placeholder="Author" />
         <button class="add-btn" type="submit">Add</button>
       </form>
-    </div>
+    </main>
     <script src="app.js"></script>
   </body>
 </html>

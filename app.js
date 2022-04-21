@@ -21,12 +21,11 @@ class UI {
   static addBookToList(book) {
     const bookStore = document.querySelector('.book-store');
     const div = document.createElement('div');
+    div.classList.add('book-container');
 
     div.innerHTML = `
-    <p>${book.title}</P>
-    <p>${book.author}</P>
-    <button class="delete">Remove</button>
-    <hr>`;
+    <span class='book-title'>${book.title}</span> by <span class='book-author'>${book.author}</span>
+    <button class="delete">Remove</button>`;
 
     bookStore.appendChild(div);
   }
