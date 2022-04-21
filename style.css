@@ -4,11 +4,19 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: #eeeded;
+}
+
 .book-section {
   display: block;
+  margin: 0 auto;
+  width: 80%;
 }
 .add-section {
   display: none;
+  margin: 60px auto;
+  width: 80%;
 }
 
 .contact-section {
@@ -53,6 +61,10 @@
   padding: 10px 20px;
 }
 
+.header-date {
+  font-size: 18px;
+  font-family: 'Patrick Hand', cursive ;
+}
 .main {
   width: 70%;
   margin: 0 auto;
@@ -69,6 +81,10 @@
   background-color: #b8b8b8;
 }
 
+.book-title,
+.book-author {
+  font-size: 18px;
+}
 .book-container {
   padding: 10px;
 }
@@ -82,12 +98,6 @@
   box-shadow: 2px 2px 2px #000;
   font-family: 'Patrick Hand', cursive;
 }
-
-/* hr {
-  margin: 20px auto;
-  max-width: 30%;
-  border-color: #000;
-} */
 
 #form {
   text-align: center;
@@ -107,6 +117,7 @@ input {
   margin: 5px 0 10px;
   border: 2px solid #000;
   font-family: 'Patrick Hand', cursive;
+  font-size: 17px;
 }
 
 .add-btn {
@@ -116,10 +127,12 @@ input {
   box-shadow: 2px 2px 2px #000;
   border: 2px solid #000;
   font-family: 'Patrick Hand', cursive;
+  font-size: 17px;
 }
 
 .contact-section {
   position: relative;
+  font-size: 20px;
 }
 
 .contact-section div {
@@ -131,7 +144,7 @@ input {
   position: absolute;
   bottom: 0;
   border: 2px solid #000;
-  width: 97%;
+  width: 99%;
   padding: 0 10px;
   font-family: 'Patrick Hand', cursive;
 }
