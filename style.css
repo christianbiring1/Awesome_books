@@ -5,10 +5,10 @@
 }
 
 .book-section {
-  display: none;
+  display: block;
 }
 .add-section {
-  display: block;
+  display: none;
 }
 
 .contact-section {
