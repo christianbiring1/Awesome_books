@@ -4,6 +4,73 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: #eeeded;
+}
+
+.flex {
+  display: flex;
+}
+
+.book-section {
+  display: block;
+  margin: 0 auto;
+  width: 80%;
+}
+
+.add-section {
+  display: none;
+  margin: 60px auto;
+  width: 80%;
+}
+
+.contact-section {
+  display: none;
+  position: relative;
+  font-size: 20px;
+}
+
+.header-nav {
+  justify-content: space-between;
+  padding: 0 10px;
+  border: 2px solid #000;
+  align-items: center;
+  font-weight: bold;
+}
+
+.nav-bar {
+  gap: 20px;
+}
+
+.header-nav div {
+  cursor: pointer;
+}
+
+.nav-bar li {
+  list-style-type: none;
+  cursor: pointer;
+}
+
+.list::after,
+.add::after {
+  content: '';
+  background-color: #000;
+  width: 3px;
+  height: 20px;
+  position: absolute;
+  margin: 0 10px;
+}
+
+.header {
+  justify-content: flex-end;
+  padding: 10px 20px;
+}
+
+.header-date {
+  font-size: 18px;
+  font-family: 'Patrick Hand', cursive;
+}
+
 .main {
   width: 70%;
   margin: 0 auto;
@@ -20,6 +87,11 @@
   background-color: #b8b8b8;
 }
 
+.book-title,
+.book-author {
+  font-size: 18px;
+}
+
 .book-container {
   padding: 10px;
 }
@@ -34,17 +106,10 @@
   font-family: 'Patrick Hand', cursive;
 }
 
-hr {
-  margin: 20px auto;
-  max-width: 30%;
-  border-color: #000;
-}
-
 #form {
   text-align: center;
   margin: 0 auto;
   width: 70%;
-  display: flex;
   flex-direction: column;
   gap: 0;
 }
@@ -58,6 +123,7 @@ input {
   margin: 5px 0 10px;
   border: 2px solid #000;
   font-family: 'Patrick Hand', cursive;
+  font-size: 17px;
 }
 
 .add-btn {
@@ -66,6 +132,22 @@ input {
   align-self: flex-end;
   box-shadow: 2px 2px 2px #000;
   border: 2px solid #000;
+  font-family: 'Patrick Hand', cursive;
+  font-size: 17px;
+}
+
+.contact-section div {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.footer {
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  border: 2px solid #000;
+  width: 99%;
+  padding: 0 10px;
   font-family: 'Patrick Hand', cursive;
 }
 
