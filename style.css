@@ -8,6 +8,10 @@ body {
   background-color: #eeeded;
 }
 
+.flex {
+  display: flex;
+}
+
 .book-section {
   display: block;
   margin: 0 auto;
@@ -27,7 +31,6 @@ body {
 }
 
 .header-nav {
-  display: flex;
   justify-content: space-between;
   padding: 0 10px;
   border: 2px solid #000;
@@ -36,7 +39,6 @@ body {
 }
 
 .nav-bar {
-  display: flex;
   gap: 20px;
 }
 
@@ -60,7 +62,6 @@ body {
 }
 
 .header {
-  display: flex;
   justify-content: flex-end;
   padding: 10px 20px;
 }
@@ -109,7 +110,6 @@ body {
   text-align: center;
   margin: 0 auto;
   width: 70%;
-  display: flex;
   flex-direction: column;
   gap: 0;
 }
@@ -142,6 +142,7 @@ input {
 }
 
 .footer {
+  text-align: center;
   position: absolute;
   bottom: 0;
   border: 2px solid #000;
